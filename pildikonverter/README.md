@@ -1,72 +1,26 @@
-# Pildikonverter (TIF / TIFF / PSD → JPG)
+# Image Converter (TIF / TIFF / PSD → JPG)
 
-Konverdib kõik `.tif`, `.tiff` ja `.psd` failid valitud kaustas JPG-formaati:
+Converts all `.tif`, `.tiff`, and `.psd` files in a selected folder to JPG format.
 
-- Laius **1920 px** (kõrgus skaleeritakse proportsionaalselt)
-- Värviruum **RGB**
-- JPG kvaliteet **85** (vahepealne 80–90)
-- Tulemused salvestatakse alamkausta **`jpg/`**
+## Conversion settings
 
-Algfaile ei muudeta.
-
----
-
-## Paigaldus Windowsis (üks kord)
-
-1. **Paigalda Python 3.10+** aadressilt <https://www.python.org/downloads/windows/>.
-   Installeris märgi linnuke **"Add Python to PATH"**.
-
-2. Ava **Command Prompt** (Win+R → `cmd` → Enter) ja mine selle kausta:
-   ```
-   cd C:\tee\pildikonverter
-   ```
-
-3. Paigalda sõltuvused:
-   ```
-   pip install -r requirements.txt
-   ```
+- Image width: **1920 px** (height is scaled proportionally)
+- Color space: **RGB**
+- JPG quality: **85** (recommended range 80–90)
+- Output files are saved to a subfolder named **`jpg/`**
+- Original files are **not modified**
 
 ---
 
-## Kasutamine
+## Installation on Windows (one-time setup)
 
-**Variant A — anna kausta tee argumendina:**
-```
-python convert.py "C:\Users\Sina\Pildid\toores"
-```
+1. **Install Python 3.10+** from  
+   <https://www.python.org/downloads/windows/>
 
-**Variant B — käivita ilma argumendita, küsib kausta:**
-```
-python convert.py
-```
+   During installation, make sure to check  
+   **“Add Python to PATH”**.
 
-**Variant C — lohista kaust skripti peale** (Windows Exploreris).
-
-Tulemused ilmuvad sisendkausta sees `jpg/` alamkausta.
-
----
-
-## Soovikorral: tee `.exe`
-
-Et skript töötaks ilma Pythoni paigalduseta:
-
-```
-pip install pyinstaller
-pyinstaller --onefile convert.py
-```
-
-Valmis fail: `dist\convert.exe`. Lohista selle peale kaust või jooksuta:
-```
-convert.exe "C:\tee\pildidele"
-```
-
----
-
-## Sätete muutmine
-
-Ava `convert.py` ja muuda faili algusest:
-
-```python
-TARGET_WIDTH = 1920    # piksli laius
-JPG_QUALITY  = 85      # 1–100 (soovitatud 80–90)
-```
+2. Open **Command Prompt** (Win + R → `cmd` → Enter) and navigate to the project folder:
+   ```bash
+   cd C:\path\to\pildikonverter
+   ``
